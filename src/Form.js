@@ -11,10 +11,14 @@ class Form extends Component {
         <form
           onSubmit={e => {
             e.preventDefault();
-            this.props.addTask({
-              title: this.state.title,
-              description: this.state.description
-            });
+            if (this.state.title !== "" && this.state.description !== "") {
+              this.props.addTask({
+                title: this.state.title,
+                description: this.state.description
+              });
+            } else {
+              alert("Введите заголовок и описание");
+            }
           }}
         >
           <div className="form-group">
