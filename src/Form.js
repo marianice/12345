@@ -1,6 +1,10 @@
 import React, { Component } from "react";
+import {func} from "prop-types";
 
 class Form extends Component {
+  static propTypes = {
+    addTask: func.isRequired,
+  };
   state = {
     title: "",
     description: ""
@@ -15,6 +19,10 @@ class Form extends Component {
               this.props.addTask({
                 title: this.state.title,
                 description: this.state.description
+              });
+              this.setState({
+                title: "",
+                description: ""
               });
             } else {
               alert("Введите заголовок и описание");
