@@ -14,13 +14,13 @@ class List extends Component {
   render() {
     return (
       <div className="col-sm-4">
-        {this.props.tasks.map((item, index) => {
+        {this.props.tasks.map(item => {
           return (
-            <div key={index} className="card" style={style}>
+            <div key={item.id} className="card" style={style}>
               <div className="card-body">
                 <h5 className="card-title">{item.title}</h5>
                 <p className="card-text">{item.description}</p>
-                <button onClick={() => this.props.delTask(index)}>
+                <button onClick={() => this.props.delTask(item.id)}>
                   Удалить
                 </button>
               </div>
